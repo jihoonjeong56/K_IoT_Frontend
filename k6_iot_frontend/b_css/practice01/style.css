@@ -1,191 +1,159 @@
-/* style.css */
-
+/* 포트폴리오.css - 확장판 */
+/* CSS 변수를 정의하여 전체 문서에 걸쳐 쉽게 색상과 스타일을 관리할 수 있습니다. */
 :root {
-  --main-color: #3498db;
-  --accent-color: #f39c12;
-  --light-bg: #ecf0f1; /* 밝은 배경 색상 */
-  --dark-text: #2c3e50;
-  --light-text: #bdc3c7;
+  --main-color: #3498db; /* 주 색상 */
+  --accent-color: #f39c12; /* 강조 색상 */
+  --light-bg: #ecf0f1; /* 밝은 배경색 */
+  --dark-text: #2c3e50; /* 진한 텍스트 색상 */
+  --light-text: #bdc3c7; /* 밝은 텍스트 색상 */
 }
 
 body {
-  /* 
-  - 외부, 내부 여백 X 
-  - 배경색: --light-bg
-  - 글자색: --dark-text
-  - 프로젝트 내의 요소들은 box 모델 사이즈에 내부 여백과 테두리를 포함해서 설정
-  */
-  background-color: var(--light-bg);
-  color: var(--dark-text);
+  font-family: "Helvetica Neue", sans-serif; /* 폰트 스타일 */
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg); /* 배경색 설정 */
+  color: var(--dark-text); /* 기본 텍스트 색상 설정 */
+  box-sizing: border-box; /* 박스 크기 계산 방식 설정 */
 }
 
 header,
 nav,
 section,
 footer {
-  margin: 10px;
   padding: 20px;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0, 4px, 6px, rgba(0, 0, 0, 0.1) S;
-  /* 
-  전체 페이지 레이아웃 
-  - 내부 여백: 20px
-  - 외부 여백: 10px
-  - 배경색: 흰색
-  - 테두리 둥글게: 10px
-  - 박스 그림자
-    : (가로X) 하위에 4px, 퍼짐효과 6px, alpha 0.1(rgba)
-  - 변경 효과: 변형이 일어나면 0.3s 처음과 끝은 느리게 중간은 빠르게 효과
-  */
+  margin: 10px;
+  background: white; /* 배경색 */
+  border-radius: 10px; /* 테두리 둥글게 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  transition: transform 0.3s ease-in-out; /* 변형에 대한 전환 효과 */
 }
 
 header {
-  /*  
-  - 배경색: 선형 그라데이션(오른쪽 방향, 메인 > 강조)
-  - 글자색: 흰색
-  - 텍스트 그림자: 오른쪽 하단 1px씩, 번짐효과 2px, 검은색
-  */
   background-image: linear-gradient(
     to right,
     var(--main-color),
     var(--accent-color)
   ); /* 헤더 배경에 그라데이션 효과 */
-
-  color: white;
-  text-shadow: 1px 2px black;
+  color: white; /* 텍스트 색상 */
+  text-shadow: 1px 1px 2px black; /* 텍스트 그림자 효과 */
 }
 
 header h1,
 header p {
-  text-align: center;
-  /* 글자 정렬 - x축 기준 가운데 정렬 */
+  text-align: center; /* 텍스트 중앙 정렬 */
 }
 
 nav {
-  /* 네비게이션 바 배경색: 흰색 */
-  /* 내부 여백 상하: 5px */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* 박스 그림자 */
+  background-color: white; /* 네비게이션 바 배경색 */
+  padding: 5px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 박스 그림자 */
 }
 
 nav ul {
-  /*  
-  - 리스트는 수평 배치, 중앙에 정렬
-  - 스타일이 없는 리스트를 설정
-  - 내부 여백 X
-  */
-  text-align: center;
-  list-style: none;
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  padding: 0;
+  list-style-type: none; /* 목록 스타일 없음 */
 }
 
 nav ul li {
-  display: inline-block;
-  margin: 10px 10px;
-  /* 좌우 마진: 10px */
+  margin: 0px 10px; /* 좌우 마진 */
 }
 
 nav ul li a {
-  /*
-  링크 밑줄 없음
-  텍스트 색상: --dark-text
-  글자 굵기: bold
-  마진: 10px
-  패딩: 5px 10px
-  테두리: 투명, 두께 2px
-  모든 속성에 대해 0.3초 동안 전환 효과 적용: 시작과 끝은 느리게, 중간은 빠르게
-  */
-  text-decoration: none;
-  color: var(--dark-text);
-  font-weight: bold;
-  margin: 10px;
-  padding: 5px, 10px;
-  border-width: 2px;
-  border-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none; /* 밑줄 없음 */
+  color: var(--dark-text); /* 텍스트 색상 */
+  font-weight: bold; /* 폰트 굵기 */
+  margin: 10px; /* 마진 */
+  padding: 5px 10px; /* 패딩 */
+  border: 2px solid transparent; /* 투명한 테두리 */
+  transition: all 0.3s; /* 모든 전환 효과 */
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
-  /*
-    - 배경색: --main-color
-    - 텍스트 색상: 흰색
-    - 테두리 색상: --accent-color
-    - 테두리 둥글게: 5px
-    */
-  background-color: var(--main-color);
-  color: white;
-  border-color: var(--accent-color);
-  border-radius: 5px;
+  background-color: var(--main-color); /* 배경색 */
+  color: white; /* 텍스트 색상 */
+  border-color: var(--accent-color); /* 테두리 색상 */
+  border-radius: 5px; /* 테두리 둥글게 */
+
+  /*! 실행되지 않는 로직입니다. 생략하셔도 됩니다.*/
+  /* transform: translateY(-3px); 위로 3px 이동 */
 }
 
 section h2 {
-  /*
-    - 하단에 3px 두께의 --accent-color 테두리
-    - 하단 패딩: 10px
-    */
-  border-width: 0, 0, 3px;
-  border-color: var(--accent-color);
-  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color); /* 하단 테두리 */
+  padding-bottom: 10px; /* 하단 패딩 */
 }
 
 table,
 th,
 td {
-  /*
-    - 테두리 색상: --light-text, 1px 두께
-    - 테두리 병합 스타일
-    */
-  border: 1px solid var(--light-text);
-  border-collapse: collapse;
+  border: 1px solid var(--light-text); /* 테두리 색상 */
+  border-collapse: collapse; /* 테두리 병합 */
 }
 
 th,
 td {
-  /*
-    - 패딩: 10px
-    - 텍스트 중앙 정렬
-    */
-  padding: 10px;
-  text-align: center;
+  padding: 10px; /* 패딩 */
+  text-align: center; /* 중앙 정렬 */
 }
 
 th {
-  /*
-    - 배경색: --main-color
-    - 텍스트 색상: 흰색
-    */
-  background-color: var(--main-color);
-  color: white;
+  background-color: var(--main-color); /* 배경색 */
+  color: white; /* 텍스트 색상 */
 }
 
 footer {
-  /*
-  - 배경색: --dark-text
-  - 텍스트 색상: --light-text
-  - 텍스트 중앙 정렬
-  - 패딩: 15px
-  - 폰트 크기: 0.8em
-  */
-  background-color: var(--dark-text);
-  color: var(--light-text);
-  text-align: center;
-  padding: 15px;
-  font-size: 0.8em;
+  background-color: var(--dark-text); /* 배경색 */
+  color: var(--light-text); /* 텍스트 색상 */
+  text-align: center; /* 중앙 정렬 */
+  padding: 15px; /* 패딩 */
+  font-size: 0.8em; /* 폰트 크기 */
 }
 
 footer a {
-  /*
-  - 링크 색상: --accent-color
-  - 밑줄 없음
-  - 색상 전환 효과: 0.3초 동안 색상 변경
-  */
-  color: var(--accent-color);
-  text-decoration: none;
+  color: var(--accent-color); /* 링크 색상 */
+  text-decoration: none; /* 밑줄 없음 */
+  transition: color 0.3s; /* 색상 전환 효과 */
 }
 
 footer a:hover {
-  /*
-  - 호버 시 색상 변경: --main-color
-  */
-  color: var(--main-color);
+  color: var(--main-color); /* 호버 시 색상 변경 */
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* 방향 변경 */
+  }
+
+  header,
+  nav,
+  section,
+  footer {
+    margin: 0; /* 마진 제거 */
+    border-radius: 0; /* 둥근 테두리 제거 */
+  }
+
+  nav ul li {
+    display: block; /* 블록 디스플레이 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 10px 0; /* 패딩 */
+  }
+}
+
+/* 페이드인 애니메이션 효과 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+section {
+  animation: fadeIn 1s ease-in-out; /* 섹션에 애니메이션 적용 */
 }
