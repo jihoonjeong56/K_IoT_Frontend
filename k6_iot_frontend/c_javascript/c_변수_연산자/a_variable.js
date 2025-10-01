@@ -70,7 +70,7 @@ console.log(birthYear + '년도에 태어난 사람의 나이는 ' + age + '세 
 
 //? 상수 명명 규칙(필수 - 변수와 동일)
 // 선택 명명 규칙
-//  : UPPER_CAMEL_CASE
+//  : UPPER_SNAKE_CASE
 
 const PI = 3.14;
 // PI = 2.14;  - TypeError: Assignment to constant variable.
