@@ -50,7 +50,7 @@ let human2 = new UpperCamelCaseName("www", 17, "고등학생");
 human1.greet();
 human2.greet();
 
-//! 화살표 함수
+//! 생성자 함수
 // : new 키워드를사용하여 함수 호출
 // : UpperCamelCase 사용 권장
 function Person(firstName, lastName) {
