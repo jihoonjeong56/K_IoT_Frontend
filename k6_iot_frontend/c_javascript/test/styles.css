@@ -1,0 +1,105 @@
+:root {
+  --ink: #212529;
+  --sub: #495057;
+  --line: #e9ecef;
+  --ok: #2b8a3e;
+  --bad: #c92a2a;
+  --bg: #fff;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+nav {
+  text-decoration: none;
+  display: flex;
+}
+a {
+  text-decoration: none;
+  border: 1px solid #f0f0f0;
+  margin: 5px;
+  padding: 5px;
+  color: black;
+  border-radius: 10px;
+}
+
+.card {
+  width: 800px;
+
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  /* 지정된 너비와 높이값 + radius를 제외한 영역을 숨김 처리 */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.5px solid rgb(166, 39, 39);
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+}
+
+.btn {
+  background-color: rgb(77, 76, 76);
+  color: white;
+  padding: 5pz;
+  border-radius: 5px;
+}
+#success {
+ 
+}
+#fail-member {
+  background-color: #fff5f5;
+  color: #c92a2a;
+}
+#fail-book {
+  background-color: #fff5f5;
+  color: #c92a2a;
+}
+section {
+  display: flex;
+  flex-direction: column;
+}
+table,
+tr,
+td {
+  padding: 15px;
+  margin: 15px;
+  border-bottom: 1px solid black;
+}
+section p {
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
