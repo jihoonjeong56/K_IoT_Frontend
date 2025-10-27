@@ -39,18 +39,18 @@ console.log(length);
 // document.addEventListener("DOMContentLoaded", () => {
 //   const button = document.getElementById("myButton");
 
-//   //? bool 속성
-//   //  HTML) 키워드 만으로 명시
-//   //        <button disabled></button>
-//   // DOM) DOM객체명.bool속성 = true;
-//   //      : boolean 값으로 설정(기본값 false)
+//? bool 속성
+//  HTML) 키워드 만으로 명시
+//        <button disabled></button>
+// DOM) DOM객체명.bool속성 = true;
+//      : boolean 값으로 설정(기본값 false)
 
-//   if (button) {
-//     // 찾는 조건의 HTML 요소가 있는경우
-//     (button as HTMLButtonElement).disabled = true;
-//   }
-//   // TS 컴파일러는 실시간 코드 변환을 하지 않음
-//   // : 코드 수정 시 재컴파일 필요
+// if (button) {
+// 찾는 조건의 HTML 요소가 있는경우
+// (button as HTMLButtonElement).disabled = true;
+// }
+// TS 컴파일러는 실시간 코드 변환을 하지 않음
+// : 코드 수정 시 재컴파일 필요
 // });
 
 // 2) JSON 문자열
