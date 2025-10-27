@@ -22,11 +22,14 @@ async function fetchUserData(userId: number) {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/users/${userId}`
     );
+
     // : fetch 함수 -> Response 객체 반환
     if (!response.ok) {
       throw new Error("네트워크 응답이 실패하였습니다.");
     }
+
     const data = await response.json(); // 객체 형식으로 데이터 반환
+
     if (data.id) {
       const userData: FetchResponse = {
         name: data.name,
@@ -36,6 +39,7 @@ async function fetchUserData(userId: number) {
           catchPhrase: data.company.catchPhrase,
         },
       };
+
       handleResponse(userData);
     } else {
       // 존재하지 않는 사용자인 경우
@@ -63,6 +67,7 @@ function handleResponse(response: FetchResponse) {
     );
   }
 }
+
 fetchUserData(1);
 // Name: Leanne Graham, Email: Sincere@april.biz, Companey: Romaguera-Crona
 fetchUserData(2);
