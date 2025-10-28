@@ -18,8 +18,11 @@
 type _Task<T> = {
   //# 속성 3가지
   // 할 일의 고유 번호. 각 할 일을 구별하는 데 사용
+  id: number;
   // 할 일의 내용. 제네릭 타입 - 다양한 자료형을 할 일 내용을 사용 가능
+  task: T;
   // 할 일의 완료 상태를 저장하는 속성
+  completed: boolean;
 };
 
 // TaskManager 클래스
@@ -28,22 +31,35 @@ class _TaskManager<T> {
   // 1. 속성
   // 멤버 변수 지정: private 설정
   // - 할 일 목록을 저장할 배열
+  tasks: _Task<T>[];
   // - 다음 할 일에 할당할 고유 ID: 할 일을 추가할 때마다 1씩 증가
+  nextId: number;
 
   //? 생성자
   // 초기 할 일 목록은 비어 있음
   // ID는 1부터 시작
+  constructor() {
+    this.tasks = [];
+    this.nextId = 1;
+  }
 
   //? 2. 메서드(기능)
   // - 할 일 추가 메서드
   // : 할 일 내용(content)을 매개변수로 받아 목록에 추가
   addTask(content: T): void {
     // 새 할 일을 tasks 배열에 추가
-    // : id는 현재 nextId 값을 사용
-    // : content는 매개변수의 값을 사용
-    //? : completed는 false(완료하지 않음)을 기본값으로 설정
+    this.tasks.push({
+      // : id는 현재 nextId 값을 사용
+      id: this.nextId,
+      // : content는 매개변수의 값을 사용
+      task: content,
+      //? : completed는 false(완료하지 않음)을 기본값으로 설정
+      completed: false,
+    });
     // 다음 ID값을 미리 증가
+    this.nextId++;
     //? 할 일 개수를 업데이트
+    this.updateTaskCount();
   }
 
   // - 할 일 제거 메서드
@@ -51,8 +67,12 @@ class _TaskManager<T> {
   removeTask(id: number): void {
     // tasks 배열에서 매개변수로 받은 id와 일치하지 않는
     // , 할 일들만 필터링하여 새로운 배열 생성
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+
     // 변경된 할 일 목록을 화면에 다시 렌더링
+    this.renderTasks("task-list");
     //? 할 일 개수를 업데이트
+    this.updateTaskCount();
   }
 
   // - 할 일 목록을 화면에 렌더링하는 메서드
@@ -61,24 +81,41 @@ class _TaskManager<T> {
   renderTasks(containerId: string): void {
     // 매개변수로 받은 ID를 가진 HTML 요소를 선택
     // : 해당 요소는 HTML의 ul 태그임을 타입으로 단언
+    const taskList = document.getElementById(containerId) as HTMLUListElement;
     // 기존의 목록을 모두 비움
+    taskList.innerHTML = "";
     // tasks 배열의 각 할 일에 대해 루프를 실행
     //? 할 일 목록을 렌더링할 때 완료 체크박스와 완료 상태에 따른 스타일 변경 로직을 추가
     //# this.tasks.forEach(task => {
-    // 새로운 목록 항목(li)을 생성
-    // 할 일의 내용을 목록 항목의 텍스트로 설정
-    // 삭제 버튼(button)을 생성
-    // 버튼의 텍스트를 '삭제'로 설정
-    //# deleteButton.onclick = () => {
-    // 버튼 클릭 시 해당 할 일을 제거하는 이벤트 리스너를 등록
-    // : forEach 반복으로 해당 삭제 버튼에 각 요소의 id가 담겨있음
-    //#}
-    //? 완료 체크박스 추가
-    // 체크박스의 상태를 task 할 일의 completed 속성값으로 지정
-    //# checkbox.onchange = () => {
-    // 체크박스 상태 변경 시 할 일의 완료 상태를 업데이트
-    // 할 일 목록을 다시 렌더링
-    //#}
+    this.tasks.forEach((task) => {
+      // 새로운 목록 항목(li)을 생성
+      const li = document.createElement("li");
+      // 할 일의 내용을 목록 항목의 텍스트로 설정
+      li.textContent = `${task.task}`;
+      // 삭제 버튼(button)을 생성
+      const deleteButton = document.createElement("button");
+      // 버튼의 텍스트를 '삭제'로 설정
+      deleteButton.textContent = "삭제";
+
+      //# deleteButton.onclick = () => {
+      // 버튼 클릭 시 해당 할 일을 제거하는 이벤트 리스너를 등록
+      // : forEach 반복으로 해당 삭제 버튼에 각 요소의 id가 담겨있음
+      //#}
+      deleteButton.onclick = () => {
+        this.removeTask(task.id);
+      };
+
+      //? 완료 체크박스 추가
+      // 체크박스의 상태를 task 할 일의 completed 속성값으로 지정
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = task.completed;
+      //# checkbox.onchange = () => {
+      // 체크박스 상태 변경 시 할 일의 완료 상태를 업데이트
+      // 할 일 목록을 다시 렌더링
+      //#}
+    });
+
     //# if (task.completed) {
     // 할 일 완료 시 스타일 변경(line-throught)
     //# }
