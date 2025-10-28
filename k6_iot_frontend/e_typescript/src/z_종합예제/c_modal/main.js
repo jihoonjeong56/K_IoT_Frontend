@@ -120,6 +120,14 @@ var addEventListeners = function (users) {
         closeModal.addEventListener("click", function () {
             modal.style.display = "none";
         });
+        // 브라우저 전체를 DOM 요소로 반환(브라우저 탭의 전체 영역)
+        // : window
+        // cf) document: window에 로드되는 HTML 문서 그 자체
+        window.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
     }
 };
 var init = function () { return __awaiter(_this, void 0, void 0, function () {
