@@ -100,7 +100,7 @@ const sortUsers = (users: UsersType, key: "name" | "email"): UsersType => {
 };
 
 //! 이벤트 리스너 추가 함수
-const addEventListener = (users: UsersType) => {
+const addEventListeners = (users: UsersType) => {
   const searchInput = document.getElementById(
     "search-input"
   ) as HTMLInputElement;
@@ -129,7 +129,7 @@ const init = async (): Promise<void> => {
   const users = await fetchUsers();
 
   displayUsers(users);
-  addEventListener(users);
+  addEventListeners(users);
 };
 
 document.addEventListener("DOMContentLoaded", init);
