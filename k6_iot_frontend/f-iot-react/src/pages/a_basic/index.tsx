@@ -6,6 +6,7 @@ import React from "react";
 import C_Component, { Img } from "./C_Component";
 import D_JSX from "./D_JSX";
 import E_JSX from "./E_JSX";
+import { ExampleComponent } from "./F_Review";
 
 const h2style = {
   backgroundColor: "black",
