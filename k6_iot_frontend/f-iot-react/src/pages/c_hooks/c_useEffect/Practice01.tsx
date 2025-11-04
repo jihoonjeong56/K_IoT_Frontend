@@ -99,13 +99,38 @@ function Practice01() {
   }, []);
 
   // 30초 마다 자동 새로고침 (폴링)
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const interver = setInterval(() => {
+      console.log("예약 데이터 자동 새로고침");
+      fetchReservations();
+    }, 30000);
+    return () => {
+      clearInterval(interver);
+      console.log("폴링 중당(컴포넌트 언마운트)")
+    };
+  }, []);
 
   // 예약 상태 변경 핸들러
   const updateReservationStatus = async (
     id: number,
     newStatus: ReservationStatus
-  ) => {};
+  ) => {
+    try {
+      // 실제 API 환경에서는 HTTP PUT 요청 전송
+      console.log(`PUT/api/v1/reservations/${id}-> ${newStatus}`);
+
+      // UI 즉시 반영
+      setReservations((prev) =>
+        prev.map((reservation) =>
+          reservation.id === id
+            ? { ...reservation, status: newStatus }
+            : reservation
+        )
+      );
+    } catch (e) {
+      console.error("예약 상태 변경 실패", e);
+    }
+  };
 
   //! 4. 로딩 / 에러 / 성공 분기 렌더리
   if (loading) return <p>예약 정보를 불러온느 중입니다.</p>;
@@ -172,7 +197,7 @@ function Practice01() {
                     updateReservationStatus(reservation.id, "CANCELLED")
                   }
                 >
-                  승인
+                  취소
                 </button>
               )}
             </div>
