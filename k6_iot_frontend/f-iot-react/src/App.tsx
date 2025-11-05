@@ -6,8 +6,11 @@ import Hooks from "@/pages/c_hooks";
 import Navibar from "./components/NaviBar";
 import PostList from "./_practices/a_basic/PostList";
 import PostDetail from "./components/PostDetail";
+import SearchApp from "./_practices/c_hooks/SearchApp";
 
 // 파일명 없으면 무조건! 해당 파일의 index 라는 이름의 파일을 가져옴
+
+
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
 
         <Route path="/practice/post" element={<PostList />} />
         <Route path="/practice/post/:id" element={<PostDetail />} />
+        <Route path="/practice/search" element={<SearchApp />} />
       </Routes>
     </>
   );
