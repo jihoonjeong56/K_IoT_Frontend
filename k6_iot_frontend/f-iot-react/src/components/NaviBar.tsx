@@ -19,6 +19,7 @@ function Navibar() {
     "basic",
     "route",
     "hooks",
+    "http",
     "practice/post",
     "practice/search",
   ];
