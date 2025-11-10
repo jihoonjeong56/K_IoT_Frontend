@@ -2,6 +2,7 @@ import ToggleSection from "@/components/ToggleSection";
 import React from "react";
 import A_Context from "./A_Context";
 import B_Zustand from "./B_Zustand";
+import SignIn from "./SignIn";
 
 function Index() {
   return (
@@ -14,6 +15,9 @@ function Index() {
       </ToggleSection>
       <ToggleSection title="2. Zustand">
         <B_Zustand />
+      </ToggleSection>
+      <ToggleSection title="3. SignIn페이지">
+        <SignIn />
       </ToggleSection>
     </div>
   );

@@ -15,14 +15,16 @@ import Z_ProductDetail from "./pages/b_Route/Z_ProductDetail";
 import Z_ProductInfo from "./pages/b_Route/Z_ProductInfo";
 import Z_ProductReviews from "./pages/b_Route/Z_ProductReviews";
 import Z_DashBoard from "./pages/b_Route/Z_DashBoard";
+import { useCountstore } from "./pages/e_global_state/B_Zustand";
 
 // 파일명 없으면 무조건! 해당 파일의 index 라는 이름의 파일을 가져옴
 
 function App() {
+  const { count } = useCountstore();
   return (
     <>
       {/* 경로와 상관없이 렌더링 */}
-      <h1>Korea IoT React</h1>
+      <h1>Korea IoT React{count}</h1>
       <Navibar />
 
       {/* Routes 태그: Route를 감싸는 컴포넌트 */}
