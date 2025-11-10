@@ -20,6 +20,7 @@ function Navibar() {
     "route",
     "hooks",
     "http",
+    "global-state",
     "practice/post",
     "practice/search",
   ];
