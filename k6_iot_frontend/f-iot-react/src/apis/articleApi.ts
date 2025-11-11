@@ -14,6 +14,7 @@ interface ArticleUpdateRequest {
   title: string;
   content: string;
 }
+
 // ============== 응답 DTO =================
 //? 게시글 응답 DTO (LIST)
 export interface ArticleListResponse {
