@@ -24,7 +24,7 @@ interface ReservationState {
 
   //action
   fetchReservations: (truckId: number) => Promise<void>;
-  fetchResrvationById: (
+  fetchReservationById: (
     truckId: number,
     reservationId: number
   ) => Promise<Reservation | null>;
@@ -47,7 +47,7 @@ export const useReservationStore = create<ReservationState>((set) => ({
       selectedTruckId: truckId,
     });
   },
-  fetchResrvationById: async (truckId, reservationId) => {
+  fetchReservationById: async (truckId, reservationId) => {
     // store에 단건을 리스트에 반영하거나 반환만 가능
     // : 리스트에 해당 항목이 있으면 덮어쓰고, 없으면 앞에 추가
     // > set 설정 함수는 내부에 콜백 함수를 가짐( 해당 콜백함수의 매개변수는 상태의 최신값)

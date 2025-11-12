@@ -4,7 +4,8 @@ import A_Context from "./A_Context";
 import B_Zustand from "./B_Zustand";
 import SignIn from "./SignIn";
 import GlobalData from "./GlobalData";
-import TruckReservationList from "./TruckReservationList";
+import TruckReservationList from "../../components/TruckReservationList";
+import TruckDetailPage from "./TruckDetailPage";
 
 function Index() {
   return (
@@ -25,7 +26,7 @@ function Index() {
         <GlobalData />
       </ToggleSection>
       <ToggleSection title="5. zustand 연습(reservation)">
-        <TruckReservationList />
+        <TruckDetailPage />
       </ToggleSection>
     </div>
   );
