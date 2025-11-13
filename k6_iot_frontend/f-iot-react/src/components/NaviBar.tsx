@@ -24,6 +24,7 @@ function Navibar() {
     "style",
     "practice/post",
     "practice/search",
+    "p/dashboard",
   ];
 
   return (

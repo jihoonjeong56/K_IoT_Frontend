@@ -1,6 +1,6 @@
 import { useUIStore } from "@/stores/ui.store";
 import React from "react";
-import Navibar from "./NaviBar";
+import Navibar from "./Navibar";
 
 function Sidebar() {
   const isSidebarOpen = useUIStore((s) => s.isSidebarOpen);

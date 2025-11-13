@@ -2,6 +2,7 @@ import SearchBox from "@/components/SearchBox";
 import SearchResults from "@/components/SearchResults";
 import { useSearch } from "@/hooks/useSearch";
 import React from "react";
+import "./SearchApp.css";
 
 //! 웹사이트 검색 기능
 
